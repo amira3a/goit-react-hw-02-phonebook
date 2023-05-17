@@ -29,11 +29,18 @@ function PhonebookApp() {
 
   function handleSubmit  (event)  {
     event.preventDefault();
-    const existingContact = state.contacts.find(
-      (contact) => contact.name.toLowerCase() === state.name.toLowerCase()
+    const existingContactName = state.contacts.find(
+      (contact) => contact.name.toLowerCase() === state.name.toLowerCase() 
+    )
+    const existingContactNumber = state.contacts.find(
+      (contact) => contact.number === state.number 
     );
-    if (existingContact) {
+    if (existingContactName) {
       alert(`${state.name} is already in the phonebook!`);
+      return;
+    }
+    if (existingContactNumber) {
+      alert(`${state.number} is already in the phonebook!`);
       return;
     }
     const newContact = {
