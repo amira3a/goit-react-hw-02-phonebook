@@ -65,7 +65,9 @@ function PhonebookApp() {
 
   const filteredContacts = state.contacts.filter((contact) =>
     contact.name.toLowerCase().includes(state.filter.toLowerCase())
+||  contact.number.toLowerCase().includes(state.filter.toLowerCase())
   );
+  
 
   return (
     <div>
@@ -79,7 +81,7 @@ function PhonebookApp() {
       />
       <h2>Contacts</h2>
       <Filter value={state.filter} handleChange={handleFilterChange} />
-      <ContactList contacts={filteredContacts} handleDelete={handleDelete} />
+      <ContactList contacts={filteredContacts}   handleDelete={handleDelete} />
     </div>
   );
 }
